@@ -3,7 +3,7 @@
 This project installs and configures Elasticsearch, Mongo, Redis, & Memcached on your local machine.
 It requires:  
 * docker v18.06.1  
-    * Docker must be configured with a minimum of 8 cpus & 10 GiB memory
+    Docker must be configured with a minimum of 8 cpus & 10 GiB memory
 
 To use, from the root of the directory run
 ```
