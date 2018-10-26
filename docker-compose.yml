@@ -6,7 +6,7 @@ services:
     container_name: mongo-cluster
     ulimits:
       nproc: 750000
-    command: mongod --wiredTigerCacheSizeGB 1.0 -replSet "jg0" --bind_ip_all
+    command: --wiredTigerCacheSizeGB 1.0 -replSet "jg0" --bind_ip_all
     ports:
       - "27017:27017"
   elastic:

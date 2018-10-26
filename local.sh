@@ -20,12 +20,12 @@ elif [ "$action" == "$stop_service" ]; then
     docker-compose stop;
 elif [ "$action" == "$build_service" ]; then
     echo 'hit 3'
-    docker-compose up --d && \
+    docker-compose up -d && \
     docker-compose exec mongo sh -c 'mongo < /data/mongodb/scripts/cluster-init.js && mongo < /data/mongodb/scripts/cluster-config.js';
 elif [ $action == $rebuild_service ]; then
     echo 'hit 4'
     docker-compose down && \
-    docker-compose up --d && \
+    docker-compose up -d && \
     docker-compose exec mongo sh -c 'mongo < /data/mongodb/scripts/cluster-init.js && mongo < /data/mongodb/scripts/cluster-config.js';
 else
     echo 'hit 4'
