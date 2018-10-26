@@ -1,0 +1,41 @@
+version: '2'
+services:
+  mongo:
+    build: ./mongo
+    image: "mongo-cluster:latest"
+    container_name: mongo-cluster
+    ulimits:
+      nproc: 750000
+    command: mongod --wiredTigerCacheSizeGB 1.0 -replSet "jg0" --bind_ip_all
+    ports:
+      - "27017:27017"
+  elastic:
+    build: ./elasticsearch
+    image: "elastic-ingest:5.6.11"
+    container_name: elastic-ingest
+    mem_limit: 4g
+    memswap_limit: 4g
+    ulimits:
+      nproc: 750000
+    environment:
+      - "discovery.type=single-node"
+      - "xpack.security.enabled=false"
+      - "ES_JAVA_OPTS=-Xms2g -Xmx2g"
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+  redis:
+    build: ./redis
+    image: "redis:4.0.11"
+    container_name: redis-256m
+    mem_limit: 256m
+    ulimits:
+      nproc: 750000
+    ports:
+      - "6379:6379"
+  memcached:
+    image: "memcached:latest"
+    container_name: memcached-256m
+    mem_limit: 256m
+    ports:
+      - "11211:11211"
