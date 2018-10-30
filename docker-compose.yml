@@ -2,7 +2,7 @@ version: '2'
 services:
   mongo:
     build: ./mongo
-    image: "mongo-cluster:latest"
+    image: "mongo-cluster:4.0.3"
     container_name: mongo-cluster
     ulimits:
       nproc: 750000
