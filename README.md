@@ -13,7 +13,7 @@ To use, from the root of the directory run
 
 To destroy your local env and start from scratch run
 ```
-    docker-compose down && \
+    docker-compose down -v --rmi all && \
     docker-compose up -d && \
     docker-compose exec mongo sh -c 'mongo < /data/mongodb/scripts/cluster-init.js && mongo < /data/mongodb/scripts/cluster-config.js';
 ```
