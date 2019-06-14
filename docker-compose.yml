@@ -33,9 +33,3 @@ services:
       nproc: 750000
     ports:
       - "6379:6379"
-  memcached:
-    image: "memcached:latest"
-    container_name: memcached-256m
-    mem_limit: 256m
-    ports:
-      - "11211:11211"
